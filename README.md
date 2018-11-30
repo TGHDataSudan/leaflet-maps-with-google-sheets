@@ -1,12 +1,9 @@
 # Leaflet Maps with Google Sheets
 Leaflet maps with a linked Google Sheets template and GeoJSON data on GitHub
 
-## Live links (replace with your own)
+## Live links
 - Leaflet Map https://tghdatasudan.github.io/map/
 - Google Sheets template https://docs.google.com/spreadsheets/d/1AXvxEIYVWyj746BWQwl7j8VhH38YA6GTPNxPMDN8BwA/edit#gid=0
-
-## Create your own
-- See video with step-by-step tutorial in *Data Visualization for All* http://www.datavizforall.org/leaflet/with-google-sheets/
 
 ## Credits (and licenses)
 Developed by [Ilya Ilyankou](https://github.com/ilyankou) and [Jack Dougherty](https://github.com/jackdougherty) with support from Trinity College CT, using a [Google Sheets](https://www.google.com/sheets/about/) template, with these open-source components:
