@@ -1,7 +1,5 @@
 # Leaflet Maps with Google Sheets
-Customize Leaflet maps with a linked Google Sheets template and GeoJSON data on GitHub
-
-![Preview](preview.jpg)
+Leaflet maps with a linked Google Sheets template and GeoJSON data on GitHub
 
 ## Live links (replace with your own)
 - Leaflet Map https://tghdatasudan.github.io/map/
