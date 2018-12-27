@@ -125,9 +125,13 @@ $(window).on('load', function() {
         );
 
       if (point.Latitude !== '' && point.Longitude !== '') {
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-        var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: 'blue',  fillColor: point['Icon Color'], fillOpacity: 0.2, radius: point['Size']}) ;       
+        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
+        var AddCircle = point['CRadius'] !='';
         
+        if (AddCircle) {
+          var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['CColor'],  fillColor: point['CfillColor'], fillOpacity: point['COpacity'], radius: point['CRadius']}) ;       
+        }
+          
         marker.bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           point['Description']);
