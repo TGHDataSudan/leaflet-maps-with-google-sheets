@@ -125,7 +125,8 @@ $(window).on('load', function() {
         );
 
       if (point.Latitude !== '' && point.Longitude !== '') {
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+//serge        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+        var marker = L.circle([point.Latitude, point.Longitude], {  color: 'red',  fillColor: '#f03',    fillOpacity: 0.5,    radius: 50})
           .bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           point['Description']);
