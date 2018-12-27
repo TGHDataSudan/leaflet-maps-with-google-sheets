@@ -130,7 +130,7 @@ $(window).on('load', function() {
         var marker = L.circle([point.Latitude, point.Longitude], {color: 'blue',  fillColor: point['Icon Color'], fillOpacity: 0.5, radius: MyRadius})
           .bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          point['Description']);
+          point['Description'] + ' radius :' + MyRadius);
               
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
