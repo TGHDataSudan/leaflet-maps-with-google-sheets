@@ -125,8 +125,8 @@ $(window).on('load', function() {
         );
 
       if (point.Latitude !== '' && point.Longitude !== '') {
-//serge        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-        var marker = L.circleMarker([point.Latitude, point.Longitude], {color: 'blue',  fillColor: point['Icon Color'], fillOpacity: 0.5, radius: point['Size']}) ;       
+        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
+        var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: 'blue',  fillColor: point['Icon Color'], fillOpacity: 0.2, radius: point['Size']}) ;       
         
         marker.bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
@@ -134,9 +134,11 @@ $(window).on('load', function() {
               
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
+          Cmarker.addTo(layers[point.Group]);
         }
 
         markerArray.push(marker);
+        markerArray.push(Cmarker);
       }
     }
 
