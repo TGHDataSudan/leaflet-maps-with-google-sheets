@@ -125,7 +125,7 @@ $(window).on('load', function() {
 
       if (point.Latitude !== '' && point.Longitude !== '') {
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
-        marker.bindTooltip(point['Name'],{ permanent: true,direction: 'right'});
+        marker.bindTooltip(point['Name'],{ permanent: false , direction: 'right'});
       
         var AddCircle = point['CRadius'] !=='';
         
