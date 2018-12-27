@@ -126,10 +126,11 @@ $(window).on('load', function() {
 
       if (point.Latitude !== '' && point.Longitude !== '') {
 //serge        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon})
-        var marker = L.circle([point.Latitude, point.Longitude], {color: 'blue',  fillColor: point['Icon Color'], fillOpacity: 0.5, radius: point['Size']})        
-        .bindPopup("<b>" + point['Name'] + '</b><br>' +
+        var marker = L.circle([point.Latitude, point.Longitude], {color: 'blue',  fillColor: point['Icon Color'], fillOpacity: 0.5, radius: point['Size']}) ;       
+        
+        marker.bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
-          point['Description'] + ' radius :' + MyRadius);
+          point['Description']);
               
         if (layers !== undefined && layers.length !== 1) {
           marker.addTo(layers[point.Group]);
