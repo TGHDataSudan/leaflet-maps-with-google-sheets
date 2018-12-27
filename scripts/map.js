@@ -111,7 +111,6 @@ $(window).on('load', function() {
       : [32, 32];
 
       var anchor = [size[0] / 2, size[1]];
-
       var icon = (point['Marker Icon'].indexOf('.') > 0)
         ? L.icon({
           iconUrl: point['Marker Icon'],
@@ -126,7 +125,7 @@ $(window).on('load', function() {
 
       if (point.Latitude !== '' && point.Longitude !== '') {
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
-        var AddCircle = point['CRadius'] !='';
+        var AddCircle = point['CRadius'] !=='';
         
         if (AddCircle) {
           var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['CColor'],  fillColor: point['CfillColor'], fillOpacity: point['COpacity'], radius: point['CRadius']}) ;       
