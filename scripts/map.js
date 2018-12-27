@@ -128,7 +128,7 @@ $(window).on('load', function() {
         var AddCircle = point['CRadius'] !=='';
         
         if (AddCircle) {
-          var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['CColor'],  fillColor: point['CfillColor'], fillOpacity: point['COpacity'], radius: point['CRadius']}) ;       
+          var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['Marker Color'], weight: 1, fillColor: point['Marker Color'], fillOpacity: 0.8, radius: point['CRadius']}) ;       
         }
           
         marker.bindPopup("<b>" + point['Name'] + '</b><br>' +
