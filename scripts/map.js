@@ -125,11 +125,11 @@ $(window).on('load', function() {
 
       if (point.Latitude !== '' && point.Longitude !== '') {
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
+        marker.title = point['Name'];
         var AddCircle = point['CRadius'] !=='';
         
         if (AddCircle) {
           var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['Marker Color'], weight: 1, fillColor: point['Marker Color'], fillOpacity: 0.8, radius: point['CRadius']}) ;       
-          Cmarker.title = point['Name'];
         }
           
         marker.bindPopup("<b>" + point['Name'] + '</b><br>' +
