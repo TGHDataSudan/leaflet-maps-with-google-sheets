@@ -103,19 +103,18 @@ $(window).on('load', function() {
     for (var i in points) {
       var point = points[i];
       if (point.Latitude !== '' && point.Longitude !== '') {
-      var ir = point['CRadius']*0.9;
+      var ir = point['CRadius']*0.7;
       if (point['Marker Icon'] == '') {ir=0};
       if (point['Radius'] !== '') {
           var marker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
-                                                   {numberOfSides: 6, 
-                                                    weight: 3,
+                                                   {numberOfSides: point['Sides'], 
+                                                    weight: 2,
                                                     color: point['Marker Color'], 
                                                     fillOpacity: 0.8, 
                                                     imageCircleUrl: point['Marker Icon'], 
                                                     radius: point['Radius'],
                                                     innerRadius: ir
                                                    }) ; 
-          //var Cmarker = new L.RegularPolygonMarker([point.Latitude, point.Longitude], {numberOfSides: 3, rotation: 60.0,	radius: 10 });
         } else {
           // If icon contains '.', assume it's a path to a custom icon,
           // otherwise create a Font Awesome icon
