@@ -106,7 +106,7 @@ $(window).on('load', function() {
       	var RegularPolygon = point['CRadius'] !=='';
       	if (RegularPolygon) {   
             var marker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
-                                                     {numberOfSides: 12, 
+                                                     {numberOfSides: 6, 
                                                       weight: 3,
                                                       color: point['Marker Color'], 
                                                       fillOpacity: 0.8, 
