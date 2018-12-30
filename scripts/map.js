@@ -103,7 +103,7 @@ $(window).on('load', function() {
     for (var i in points) {
       var point = points[i];
       if (point.Latitude !== '' && point.Longitude !== '') {
-      var AddCircle = point['CRadius'] !=='';
+      var AddCircle = point['CRadius'] > 0 ;
       if (AddCircle) {
           //var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['Marker Color'], weight: 1, fillColor: point['Marker Color'], fillOpacity: 0.8, radius: point['CRadius']}) ;    
           var marker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
