@@ -132,7 +132,7 @@ $(window).on('load', function() {
         if (AddCircle) {
           //var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['Marker Color'], weight: 1, fillColor: point['Marker Color'], fillOpacity: 0.8, radius: point['CRadius']}) ;    
           var Cmarker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
-                                                   {numberOfSides: 12, 
+                                                   {numberOfSides: 6, 
                                                     weight: 3,
                                                     color: point['Marker Color'], 
                                                     fillOpacity: 0.8, 
