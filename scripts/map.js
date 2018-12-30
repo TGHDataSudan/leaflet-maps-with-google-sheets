@@ -140,11 +140,11 @@ $(window).on('load', function() {
           point['Description']);
               
         if (layers !== undefined && layers.length !== 1) {
-          marker.addTo(layers[point.Group]);
+          //marker.addTo(layers[point.Group]);
           if (AddCircle) {Cmarker.addTo(layers[point.Group]);};
         }
 
-        markerArray.push(marker);
+        //markerArray.push(marker);
         if (AddCircle) {markerArray.push(Cmarker);};
       }
     }
