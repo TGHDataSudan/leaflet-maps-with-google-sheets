@@ -102,7 +102,7 @@ $(window).on('load', function() {
     // check that map has loaded before adding points to it?
     for (var i in points) {
       var point = points[i];
-
+      if (point.Latitude !== '' && point.Longitude !== '') {
       // If icon contains '.', assume it's a path to a custom icon,
       // otherwise create a Font Awesome icon
       var iconSize = point['Custom Size'];
@@ -123,7 +123,7 @@ $(window).on('load', function() {
           point['Icon Color']
         );
 
-      if (point.Latitude !== '' && point.Longitude !== '') {
+      
         var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
         marker.bindTooltip(point['Name'],{ permanent: false , direction: 'auto'});
       
