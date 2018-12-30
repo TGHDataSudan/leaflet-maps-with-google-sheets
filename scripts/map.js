@@ -103,16 +103,17 @@ $(window).on('load', function() {
     for (var i in points) {
       var point = points[i];
       if (point.Latitude !== '' && point.Longitude !== '') {
-      
-      if (point['CRadius'] > 0) {
+      var ir = point['CRadius']*0.9;
+      if (point['Marker Icon'] == '') {ir=0};
+      if (point['Radius'] !== '') {
           var marker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
                                                    {numberOfSides: 6, 
                                                     weight: 3,
                                                     color: point['Marker Color'], 
                                                     fillOpacity: 0.8, 
                                                     imageCircleUrl: point['Marker Icon'], 
-                                                    radius: point['CRadius'],
-                                                    innerRadius: point['CRadius']*0.9
+                                                    radius: point['Radius'],
+                                                    innerRadius: ir
                                                    }) ; 
           //var Cmarker = new L.RegularPolygonMarker([point.Latitude, point.Longitude], {numberOfSides: 3, rotation: 60.0,	radius: 10 });
         } else {
