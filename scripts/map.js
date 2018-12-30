@@ -921,7 +921,7 @@ $(window).on('load', function() {
       credit += ' | ';
     }
 
-    credit += '';
+    credit = '';
     if (getSetting('_codeCredit')) credit += ' by ' + getSetting('_codeCredit');
     credit += ' with ';
     $('.leaflet-control-attribution')[0].innerHTML = credit + attributionHTML;
