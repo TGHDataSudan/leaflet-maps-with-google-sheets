@@ -103,35 +103,10 @@ $(window).on('load', function() {
     for (var i in points) {
       var point = points[i];
       if (point.Latitude !== '' && point.Longitude !== '') {
-      // If icon contains '.', assume it's a path to a custom icon,
-      // otherwise create a Font Awesome icon
-      var iconSize = point['Custom Size'];
-      var size = (iconSize.indexOf('x') > 0)
-      ? [parseInt(iconSize.split('x')[0]), parseInt(iconSize.split('x')[1])]
-      : [32, 32];
-
-      var anchor = [size[0] / 2, size[1]];
-      var icon = (point['Marker Icon'].indexOf('.') > 0)
-        ? L.icon({
-          iconUrl: point['Marker Icon'],
-          iconSize: size,
-          iconAnchor: anchor
-        })
-        : createMarkerIcon(point['Marker Icon'],
-          'fa',
-          point['Marker Color'].toLowerCase(),
-          point['Icon Color']
-        );
-
-      
-        var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
-        marker.bindTooltip(point['Name'],{ permanent: false , direction: 'auto'});
-      
-        var AddCircle = point['CRadius'] !=='';
-        
-        if (AddCircle) {
+      var AddCircle = point['CRadius'] !=='';
+      if (AddCircle) {
           //var Cmarker = L.circleMarker([point.Latitude, point.Longitude], {color: point['Marker Color'], weight: 1, fillColor: point['Marker Color'], fillOpacity: 0.8, radius: point['CRadius']}) ;    
-          var Cmarker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
+          var marker = new L.RegularPolygonMarker([point.Latitude, point.Longitude],
                                                    {numberOfSides: 6, 
                                                     weight: 3,
                                                     color: point['Marker Color'], 
@@ -141,19 +116,39 @@ $(window).on('load', function() {
                                                     innerRadius: point['CRadius']*0.9
                                                    }) ; 
           //var Cmarker = new L.RegularPolygonMarker([point.Latitude, point.Longitude], {numberOfSides: 3, rotation: 60.0,	radius: 10 });
-        }
-          
+        } else {
+          // If icon contains '.', assume it's a path to a custom icon,
+          // otherwise create a Font Awesome icon
+          var iconSize = point['Custom Size'];
+          var size = (iconSize.indexOf('x') > 0)
+          ? [parseInt(iconSize.split('x')[0]), parseInt(iconSize.split('x')[1])]
+          : [32, 32];
+
+          var anchor = [size[0] / 2, size[1]];
+          var icon = (point['Marker Icon'].indexOf('.') > 0)
+            ? L.icon({
+              iconUrl: point['Marker Icon'],
+              iconSize: size,
+              iconAnchor: anchor
+            })
+            : createMarkerIcon(point['Marker Icon'],
+              'fa',
+              point['Marker Color'].toLowerCase(),
+              point['Icon Color']
+            );   
+            var marker = L.marker([point.Latitude, point.Longitude], {icon: icon});
+       };
+        
+        marker.bindTooltip(point['Name'],{ permanent: false , direction: 'auto'});
         marker.bindPopup("<b>" + point['Name'] + '</b><br>' +
           (point['Image'] ? ('<img src="' + point['Image'] + '"><br>') : '') +
           point['Description']);
               
         if (layers !== undefined && layers.length !== 1) {
-          //marker.addTo(layers[point.Group]);
-          if (AddCircle) {Cmarker.addTo(layers[point.Group]);};
+          marker.addTo(layers[point.Group]);
         }
 
-        //markerArray.push(marker);
-        if (AddCircle) {markerArray.push(Cmarker);};
+        markerArray.push(marker);
       }
     }
 
