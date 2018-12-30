@@ -113,7 +113,7 @@ $(window).on('load', function() {
                                                     fillOpacity: 0.8, 
                                                     imageCircleUrl: point['Marker Icon'], 
                                                     radius: point['Radius'],
-                                                    innerRadius: ir
+                                                    //innerRadius: 10
                                                    }) ; 
         } else {
           // If icon contains '.', assume it's a path to a custom icon,
