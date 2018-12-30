@@ -632,14 +632,7 @@ $(window).on('load', function() {
     var points = mapData.sheets(constants.pointsSheetName);
     var layers;
     var group = '';
-    if (points && points.elements.length > 0) {
-      layers = determineLayers(points.elements);
-      group = mapPoints(points.elements, layers);
-    } else {
-      completePoints = true;
-    }
-
-    centerAndZoomMap(group);
+    
 
     // Add polylines
     var polylines = mapData.sheets(constants.polylinesSheetName);
@@ -655,6 +648,14 @@ $(window).on('load', function() {
     } else {
       completePolygons = true;
     }
+    
+    if (points && points.elements.length > 0) {
+      layers = determineLayers(points.elements);
+      group = mapPoints(points.elements, layers);
+    } else {
+      completePoints = true;
+    }
+    centerAndZoomMap(group);
 
     // Add Nominatim Search control
     if (getSetting('_mapSearch') !== 'off') {
